@@ -1,0 +1,20 @@
+Command: ninja all
+Loading defaults file D:/esp/projects/station/sdkconfig.defaults...
+info: Default value for MBEDTLS_HARDWARE_RSA_DS_PERIPHERAL in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+Configuration Report                                                           
++-----------------------------------------------------------------------------+
+|  Parser Version: 1                                                          |
+|  Verbosity: default                                                         |
+|  Defaults policy: sdkconfig                                                 |
+|  Status: Finished with notifications                                        |
+|                                                                             |
+| Default Value Mismatch                                                      |
+| +-------------------------------------------------------------------------+ |
+| | Using sdkconfig default values                                       |  | |
+| | Config symbols with different default value between sdkconfig and    |  | |
+| | Kconfig                                                              |  | |
+| | MBEDTLS_HARDWARE_RSA_DS_PERIPHERAL: Kconfig default value: y,        |  | |
+| | sdkconfig default value: n                                           |  | |
+| +-------------------------------------------------------------------------+ |
++-----------------------------------------------------------------------------+
