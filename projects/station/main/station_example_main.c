@@ -22,6 +22,33 @@
 #include "lwip/err.h"
 #include "lwip/sys.h"
 
+/* IDF doesn't provide gai_strerror(); provide a small fallback for logging */
+static const char *gai_strerror_idf(int err)
+{
+#ifdef EAI_AGAIN
+    if (err == EAI_AGAIN) return "Temporary failure in name resolution";
+#endif
+#ifdef EAI_NONAME
+    if (err == EAI_NONAME) return "Name or service not known";
+#endif
+#ifdef EAI_FAIL
+    if (err == EAI_FAIL) return "Non-recoverable failure in name resolution";
+#endif
+#ifdef EAI_MEMORY
+    if (err == EAI_MEMORY) return "Memory allocation failure";
+#endif
+#ifdef EAI_SERVICE
+    if (err == EAI_SERVICE) return "Service not supported for socket type";
+#endif
+#ifdef EAI_BADFLAGS
+    if (err == EAI_BADFLAGS) return "Bad flags";
+#endif
+#ifdef EAI_FAMILY
+    if (err == EAI_FAMILY) return "Address family not supported";
+#endif
+    return "getaddrinfo error";
+}
+
 /* The examples use WiFi configuration that you can set via project configuration menu
 
    If you'd rather not, just change the below entries to strings with
@@ -105,7 +132,7 @@ static bool check_internet_connectivity(void)
     struct addrinfo *res = NULL;
     int err = getaddrinfo("wttr.in", "80", &hints, &res);
     if (err != 0) {
-        ESP_LOGW(TAG, "DNS lookup failed: %s", gai_strerror(err));
+        ESP_LOGW(TAG, "DNS lookup failed: %s", gai_strerror_idf(err));
         return false;
     }
     freeaddrinfo(res);

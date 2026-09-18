@@ -818,8 +818,9 @@ CONFIG_APP_COMPILE_TIME_DATE=y
 # CONFIG_APP_EXCLUDE_PROJECT_VER_VAR is not set
 # default:
 # CONFIG_APP_EXCLUDE_PROJECT_NAME_VAR is not set
+CONFIG_APP_PROJECT_VER_FROM_CONFIG=y
 # default:
-# CONFIG_APP_PROJECT_VER_FROM_CONFIG is not set
+CONFIG_APP_PROJECT_VER="1"
 # default:
 CONFIG_APP_RETRIEVE_LEN_ELF_SHA=9
 # end of Application manager
@@ -991,8 +992,8 @@ CONFIG_PARTITION_TABLE_MD5=y
 #
 # Example Configuration
 #
-CONFIG_ESP_WIFI_SSID="Akash A14"
-CONFIG_ESP_WIFI_PASSWORD="akash1234"
+CONFIG_ESP_WIFI_SSID="Airtel_Nanha"
+CONFIG_ESP_WIFI_PASSWORD="Jivika@1234"
 # default:
 # CONFIG_ESP_STATION_EXAMPLE_WPA3_SAE_PWE_HUNT_AND_PECK is not set
 # default:
@@ -3036,7 +3037,6 @@ CONFIG_VFS_INITIALIZE_DEV_NULL=y
 # end of Virtual file system
 # end of Component config
 
-# default:
 # CONFIG_IDF_EXPERIMENTAL_FEATURES is not set
 
 # Deprecated options for backward compatibility
